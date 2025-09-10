@@ -1,7 +1,7 @@
 # Acetabular Fracture Classification (Toy Baseline)
 
 I built this as a **toy baseline** using synthetic data and a very simple rule-based pipeline.  
-It’s not a clinical tool — just a small project for learning and reproducibility.
+It’s not a clinical tool, just a small project for learning and reproducibility.
 
 ## Quickstart
 

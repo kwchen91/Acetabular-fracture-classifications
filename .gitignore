@@ -1,0 +1,39 @@
+# virtual env
+.venv/
+env/
+venv/
+
+# data & outputs 
+outputs/
+runs/
+
+# weights / checkpoints
+*.pt
+*.pth
+*.ckpt
+*.h5
+
+# logs / caches / notebooks
+logs/
+*.log
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.ipynb
+.pytest_cache/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# archives
+*.zip
+*.7z
+*.tar
+*.gz
+
+# keep
+!cm_cls.png
+!example_overlay.png

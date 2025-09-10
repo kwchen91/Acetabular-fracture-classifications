@@ -1,0 +1,37 @@
+﻿task: "classification"
+model:
+  name: "rule_based"
+
+data:
+  train_dir: "data/synth_cls/train"
+  val_dir:   "data/synth_cls/val"
+  img_ext: ".png"
+
+rules:
+  enabled: true
+  roi:
+    width: 256
+    height: 256
+    iliopectineal: [20, 44, 236, 47]
+    ilioischial:   [20, 124, 236, 127]
+    spur_area:     [180, 160, 230, 210]
+    posterior_wall: [40, 150, 90, 200]
+    iliac_wing:    [20, 20, 70, 70]
+  thresholds:
+    bright_thr: 200        # pixel >=200 counts as "bright"
+    line_pixels: 620       # >=620 bright px -> line present
+    pw_pixels: 800         # >=800 bright px in PW ROI -> PW fragment present
+    fragment_mean: 170     # still used for iliac_wing mark
+    spur_pixels: 100       # >=100 bright px in spur area -> spur present
+
+train:
+  epochs: 1
+  batch_size: 8
+
+metrics:
+  names: ["accuracy", "per_class_accuracy", "confusion_matrix"]
+
+output:
+  log_dir: "outputs/logs"
+  cm_path: "outputs/logs/cm_cls.png"
+  report_csv: "outputs/logs/cls_report.csv"

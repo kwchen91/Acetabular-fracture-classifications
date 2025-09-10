@@ -1,0 +1,24 @@
+task: "classification"
+model:
+  name: "sklearn_svm"
+  kernel: "rbf"
+  C: 1.0
+  gamma: "scale"
+
+data:
+  train_dir: "data/synth_cls/train"
+  val_dir:   "data/synth_cls/val"
+  img_ext: ".png"
+
+features:
+  # hand-crafted features to extract from images (toy):
+  - "ip_line_mean"
+  - "ii_line_mean"
+  - "pw_mean"
+  - "iw_mean"
+  - "spur_count"
+
+output:
+  log_dir: "outputs/logs"
+  cm_path: "outputs/logs/cm_cls_sklearn.png"
+  report_csv: "outputs/logs/cls_report_sklearn.csv"

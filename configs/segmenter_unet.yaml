@@ -1,0 +1,31 @@
+task: "segmentation"
+model:
+  name: "unet"
+train:
+  epochs: 5
+  batch_size: 4
+  lr: 3e-4
+  weight_decay: 1e-4
+  optimizer: "adamw"
+  scheduler:
+    name: "cosine"
+    warmup_epochs: 1
+loss:
+  primary: "dice"
+  aux: "focal"
+data:
+  train_dir: "data/synth/train"
+  val_dir:   "data/synth/val"
+  img_ext: ".png"
+  mask_ext: ".png"
+augment:
+  train:
+    - "random_flip:0.5"
+    - "random_rotate:15"
+  val:
+    - "center_crop:256"
+seed: 2025
+device: "cpu"
+log_dir: "outputs/logs"
+ckpt_dir: "outputs/ckpts"
+viz_dir: "outputs/viz"
